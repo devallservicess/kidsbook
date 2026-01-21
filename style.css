@@ -1,0 +1,616 @@
+/* Modern Children's Book Store CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fredoka One', 'Comic Sans MS', 'Nunito', cursive, sans-serif;
+}
+
+:root {
+    --primary: #6C63FF;
+    --primary-light: #A29BFE;
+    --secondary: #FF9A76;
+    --secondary-light: #FFB996;
+    --accent: #24D39A;
+    --accent-light: #55EFC4;
+    --background: #FFFFFF;
+    --surface: #F9F7FF;
+    --text: #2D3436;
+    --text-light: #636E72;
+    --shadow: 0 10px 30px rgba(108, 99, 255, 0.15);
+    --shadow-hover: 0 15px 40px rgba(108, 99, 255, 0.25);
+    --radius: 24px;
+    --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+body {
+    background: linear-gradient(135deg, #F9F7FF 0%, #EFF4FF 100%);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.03"><path fill="%236C63FF" d="M10,10 Q20,5 30,10 T50,10 T70,10 T90,10 T90,30 T90,50 T90,70 T90,90 T70,90 T50,90 T30,90 T10,90 T10,70 T10,50 T10,30Z"/></svg>');
+    background-size: 120px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Floating decorative elements */
+.floating-element {
+    position: fixed;
+    z-index: -1;
+    opacity: 0.15;
+    animation: float 6s ease-in-out infinite;
+}
+
+.floating-element:nth-child(odd) {
+    animation-delay: 0.5s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 5%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(108, 99, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid var(--primary);
+}
+
+header .logo {
+    font-size: 2.2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo::before {
+    content: "📚";
+    font-size: 2.5rem;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    border-radius: 50px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+header nav ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+header nav ul li a:hover::before {
+    width: 70%;
+}
+
+header nav ul li a:hover {
+    color: var(--primary);
+    background: rgba(108, 99, 255, 0.05);
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 120px 5%;
+    background: linear-gradient(135deg, rgba(108, 99, 255, 0.1) 0%, rgba(255, 154, 118, 0.1) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(108, 99, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    color: var(--primary);
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+    text-shadow: 3px 3px 0 rgba(255, 154, 118, 0.2);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto 40px;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero .btn {
+    padding: 18px 45px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.hero .btn:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+}
+
+.hero .btn:active {
+    transform: translateY(-2px);
+}
+
+/* Books Section */
+.books {
+    padding: 100px 5%;
+    text-align: center;
+}
+
+.books h2 {
+    font-size: 3rem;
+    margin-bottom: 60px;
+    color: var(--primary);
+    position: relative;
+    display: inline-block;
+}
+
+.books h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 5px;
+    background: var(--accent);
+    border-radius: 5px;
+}
+
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.book-card {
+    background: var(--background);
+    border-radius: var(--radius);
+    padding: 30px 25px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.book-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.book-card:hover {
+    transform: translateY(-15px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary-light);
+}
+
+.book-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    transition: var(--transition);
+}
+
+.book-card:hover img {
+    transform: scale(1.05);
+}
+
+.book-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+    min-height: 60px;
+}
+
+.book-card p {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 25px;
+    min-height: 80px;
+}
+
+.book-card .buy-btn {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+    letter-spacing: 0.5px;
+}
+
+.book-card .buy-btn:hover {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 154, 118, 0.3);
+}
+
+/* About Section */
+.about {
+    padding: 100px 5%;
+    background: linear-gradient(135deg, rgba(36, 211, 154, 0.1) 0%, rgba(108, 99, 255, 0.1) 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.about h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: var(--primary);
+}
+
+.about p {
+    font-size: 1.3rem;
+    color: var(--text);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Contact Section */
+.contact {
+    padding: 100px 5%;
+    text-align: center;
+    background: var(--surface);
+}
+
+.contact h2 {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    color: var(--primary);
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--background);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.contact input, .contact textarea {
+    padding: 18px 25px;
+    border-radius: 50px;
+    border: 2px solid #E8E6FF;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    background: var(--surface);
+}
+
+.contact textarea {
+    border-radius: 25px;
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact input:focus, .contact textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+}
+
+.contact button {
+    padding: 18px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 10px;
+}
+
+.contact button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    text-align: center;
+    padding: 40px 5%;
+    margin-top: 80px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+footer p {
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 1;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path fill="white" d="M10,10 Q20,5 30,10 T50,10 T70,10 T90,10 T90,30 T90,50 T90,70 T90,90 T70,90 T50,90 T30,90 T10,90 T10,70 T10,50 T10,30Z"/></svg>');
+    background-size: 100px;
+}
+
+/* Modal */
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-out;
+    overflow-y: auto;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.modal-content {
+    background: var(--background);
+    margin: 80px auto;
+    padding: 40px;
+    border-radius: var(--radius);
+    max-width: 700px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    animation: slideUp 0.4s ease-out;
+    max-height: calc(100vh - 160px);
+    overflow-y: auto;
+}
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal .close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--primary);
+    cursor: pointer;
+    transition: var(--transition);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.modal .close:hover {
+    color: var(--secondary);
+    background: rgba(108, 99, 255, 0.1);
+}
+
+.modal-img {
+    width: 60%;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.modal h3 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.modal p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.modal .price {
+    font-weight: 800;
+    font-size: 2rem;
+    color: var(--secondary);
+    margin: 25px 0;
+}
+
+.modal .buy-btn {
+    padding: 18px 45px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.modal .buy-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .book-list {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
+    }
+    
+    .hero h1 {
+        font-size: 3.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    header nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    .books h2, .about h2, .contact h2 {
+        font-size: 2.5rem;
+    }
+    
+    .modal-content {
+        margin: 40px 20px;
+        padding: 30px 20px;
+    }
+    
+    .modal-img {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .book-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero .btn, .contact button {
+        width: 100%;
+    }
+    
+    header nav ul li a {
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+}
+
+/* Loading animation for cards */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.book-card, .about, .contact {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+
+
+

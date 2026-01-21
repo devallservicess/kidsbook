@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store de livres pour enfants</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">📚 KidBooks</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#books">Livres</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Bienvenue sur KidBooks !</h1>
+        <p>Des histoires magiques pour les enfants, personnalisables et amusantes.</p>
+        <a href="#books" class="btn">Voir les livres</a>
+    </section>
+
+    <!-- Books Section -->
+    <section id="books" class="books">
+        <h2>Nos Livres</h2>
+        <div class="book-list">
+            <!-- Livre exemple -->
+            <div class="book-card">
+                <img src="images/ChatGPT Image 19 janv. 2026, 15_43_00.png" alt="Ahmed et le cristal du temps">
+                <h3>أحمد ومدينة الغيوم</h3>
+                <p>Une aventure magique où Ahmed voyage dans le temps !</p>
+
+            </div>
+            <div class="book-card">
+                <img src="images/ChatGPT Image 19 janv. 2026, 14_49_42.png" alt="Ahmed et la coupe du monde">
+                <h3>أحمد مع القراصنة</h3>
+                <p></p>
+            </div>
+            
+            <div class="book-card">
+                <img src="images/Gemini_Generated_Image_mvht8kmvht8kmvht.png" alt="Ahmed et la coupe du monde">
+                <h3>أحمد وبلّورة الزمن</h3>
+                <p></p>
+            </div>
+
+            <div class="book-card">
+                <img src="images/Gemini_Generated_Image_akyuk8akyuk8akyu.png" alt="Ahmed et la coupe du monde">
+                <h3>أحمد مبرمج المستقبل</h3>
+                <p></p>
+            </div>
+
+            <div class="book-card">
+                <img src="images/Gemini_Generated_Image_2oz26e2oz26e2oz2.png" alt="Ahmed et la coupe du monde">
+                <h3>أحمد الطبيب الصغير</h3>
+                <p></p>
+            </div>
+
+            <div class="book-card">
+                <img src="images/Gemini_Generated_Image_3stgiw3stgiw3stg.png" alt="Ahmed et la coupe du monde">
+                <h3>أحمد و كرة الاحلام</h3>
+                <p></p>
+            </div>
+
+            <div class="book-card">
+                <img src="images/Gemini_Generated_Image_bi8rq7bi8rq7bi8r.png" alt="Ahmed et la coupe du monde">
+                <h3> ريم ومرآة الأمنيات</h3>
+                <p></p>
+            </div>
+
+            <div class="book-card">
+                <img src="images/Gemini_Generated_Image_9jvup39jvup39jvu.png" alt="Ahmed et la coupe du monde">
+                <h3>أحمد والروبوت الصغير</h3>
+                <p></p>
+            </div>
+
+            <div class="book-card">
+                <img src="images/Gemini_Generated_Image_omvl1somvl1somvl.png" alt="Ahmed et la coupe du monde">
+                <h3>أحمد والعائلة بلا هواتف </h3>
+                <p></p>
+            </div>
+            <!-- Ajouter d'autres livres ici -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>À propos de KidBooks</h2>
+        <p>Nous créons des livres pour enfants amusants et éducatifs, personnalisables avec le visage de votre enfant pour rendre chaque histoire unique !</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contactez-nous</h2>
+        <form id="contact-form">
+            <input type="text" placeholder="Votre nom" required>
+            <input type="email" placeholder="Votre email" required>
+            <textarea placeholder="Votre message" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 KidBooks. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Modal Pop-up -->
+    <div id="book-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-img" src="" alt="Livre" class="modal-img">
+            <h3 id="modal-title"></h3>
+            <p id="modal-summary"></p>
+            <p id="modal-price" class="price"></p>
+            <a id="modal-buy-btn" href="#" target="_blank" class="buy-btn">Acheter</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
