@@ -68,7 +68,6 @@ const books = [
   }
 ];
 
-
 // Sélection de toutes les cartes
 const bookCards = document.querySelectorAll('.book-card');
 
@@ -81,7 +80,7 @@ bookCards.forEach((card, index) => {
         modalSummary.textContent = book.summary;
         modalPrice.textContent = book.price;
 
-        // Générer lien WhatsApp
+        // Générer lien WhatsApp pour le livre spécifique
         const message = `Bonjour! Je veux acheter le livre "${book.title}" au prix de ${book.price}.`;
         const url = `https://wa.me/${whatsappNumber.replace(/\D/g,'')}?text=${encodeURIComponent(message)}`;
         modalBuyBtn.href = url;
@@ -102,4 +101,89 @@ window.addEventListener('click', (e) => {
     }
 });
 
+// WhatsApp Floating Button Functionality
+const whatsappFloat = document.getElementById('whatsapp-float');
 
+// Function to generate WhatsApp message for general inquiry
+function generateWhatsAppMessage() {
+    const defaultMessage = "Bonjour! Je suis intéressé(e) par vos livres pour enfants. Pouvez-vous m'aider à choisir?";
+    return `https://wa.me/${whatsappNumber.replace(/\D/g,'')}?text=${encodeURIComponent(defaultMessage)}`;
+}
+
+// Function to generate WhatsApp message for specific book
+function generateWhatsAppMessageForBook(bookTitle, bookPrice) {
+    const message = `Bonjour! Je veux acheter le livre "${bookTitle}" au prix de ${bookPrice}.`;
+    return `https://wa.me/${whatsappNumber.replace(/\D/g,'')}?text=${encodeURIComponent(message)}`;
+}
+
+// Set WhatsApp link for floating button
+whatsappFloat.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.open(generateWhatsAppMessage(), '_blank');
+});
+
+// Smooth scroll effect for WhatsApp button on scroll
+let lastScrollTop = 0;
+let scrollTimeout;
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Hide button when scrolling down, show when scrolling up
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+        // Scrolling down and past 100px
+        whatsappFloat.style.transform = 'translateY(100px)';
+    } else {
+        // Scrolling up
+        whatsappFloat.style.transform = 'translateY(0)';
+    }
+    
+    lastScrollTop = scrollTop;
+    
+    // Clear any existing timeout
+    clearTimeout(scrollTimeout);
+    
+    // Smooth reappearance when scrolling stops
+    scrollTimeout = setTimeout(() => {
+        whatsappFloat.style.transform = 'translateY(0)';
+    }, 150);
+});
+
+// Optional: Add click sound effect (uncomment if you want)
+/*
+whatsappFloat.addEventListener('click', () => {
+    const clickSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3');
+    clickSound.volume = 0.3;
+    clickSound.play();
+});
+*/
+
+// Optional: Add keyboard shortcut for WhatsApp (Alt + W)
+document.addEventListener('keydown', (e) => {
+    if (e.altKey && e.key === 'w') {
+        e.preventDefault();
+        window.open(generateWhatsAppMessage(), '_blank');
+        
+        // Visual feedback
+        whatsappFloat.style.animation = 'none';
+        setTimeout(() => {
+            whatsappFloat.style.animation = 'pulse 2s infinite, bounce 3s infinite';
+        }, 100);
+    }
+});
+
+// Make sure WhatsApp button is visible on page load
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        whatsappFloat.style.opacity = '1';
+    }, 500);
+});
+
+// Add touch feedback for mobile
+whatsappFloat.addEventListener('touchstart', () => {
+    whatsappFloat.style.transform = 'scale(0.95)';
+});
+
+whatsappFloat.addEventListener('touchend', () => {
+    whatsappFloat.style.transform = 'scale(1)';
+});
