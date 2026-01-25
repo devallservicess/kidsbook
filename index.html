@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Store de livres pour enfants</title>
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    // REMPLACEZ 'YOUR_PIXEL_ID' par votre ID de pixel Meta
+    fbq('init', '1499486232184955');
+    fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1499486232184955&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 <body>
     <!-- Header -->
@@ -15,75 +36,75 @@
                 <li><a href="#home">Accueil</a></li>
                 <li><a href="#books">Livres</a></li>
                 <li><a href="#about">À propos</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <h1>Bienvenue sur KidBooks !</h1>
-        <p>Des histoires magiques pour les enfants, personnalisables et amusantes.</p>
-        <a href="#books" class="btn">Voir les livres</a>
+        <h1>📚 KidBooks مرحبًا بكم في </h1>
+        <p>قصص سحرية وممتعة للأطفال، مع إمكانية تخصيص القصة بوجه طفلك.</p>
+        <a href="#books" class="btn" onclick="fbq('track', 'ViewContent', {content_name: 'Browse Books Button'});">استعرض القصص</a>
     </section>
+
 
     <!-- Books Section -->
     <section id="books" class="books">
-        <h2>Nos Livres</h2>
+        <h2>القصص</h2>
         <div class="book-list">
             <!-- Livre exemple -->
-            <div class="book-card">
+            <div class="book-card" data-book-id="1" data-book-name="أحمد ومدينة الغيوم" data-book-price="48">
                 <img src="images/ChatGPT Image 19 janv. 2026, 15_43_00.png" alt="Ahmed et le cristal du temps">
                 <h3>أحمد ومدينة الغيوم</h3>
-                <p>Une aventure magique où Ahmed voyage dans le temps !</p>
-
-            </div>
-            <div class="book-card">
-                <img src="images/ChatGPT Image 19 janv. 2026, 14_49_42.png" alt="Ahmed et la coupe du monde">
-                <h3>أحمد مع القراصنة</h3>
-                <p></p>
+                <p>قصة خيالية تأخذ الأطفال في رحلة إلى مدينة تطفو فوق الغيوم، حيث يتعلم أحمد معنى الشجاعة والتعاون.</p>
             </div>
             
-            <div class="book-card">
+            <div class="book-card" data-book-id="2" data-book-name="أحمد مع القراصنة" data-book-price="48">
+                <img src="images/ChatGPT Image 19 janv. 2026, 14_49_42.png" alt="Ahmed et la coupe du monde">
+                <h3>أحمد مع القراصنة</h3>
+                <p>مغامرة بحرية مشوقة يواجه فيها أحمد القراصنة ويكتشف أن الذكاء والعمل الجماعي أقوى من القوة.</p>
+            </div>
+            
+            <div class="book-card" data-book-id="3" data-book-name="أحمد وبلّورة الزمن" data-book-price="48">
                 <img src="images/Gemini_Generated_Image_mvht8kmvht8kmvht.png" alt="Ahmed et la coupe du monde">
                 <h3>أحمد وبلّورة الزمن</h3>
-                <p></p>
+                <p>رحلة عبر العصور يقودها أحمد باستخدام بلّورة سحرية، ليتعرف على حضارات مختلفة ويتعلم احترام التنوع.</p>
             </div>
 
-            <div class="book-card">
+            <div class="book-card" data-book-id="4" data-book-name="أحمد مبرمج المستقبل" data-book-price="48">
                 <img src="images/Gemini_Generated_Image_akyuk8akyuk8akyu.png" alt="Ahmed et la coupe du monde">
                 <h3>أحمد مبرمج المستقبل</h3>
-                <p></p>
+                <p>قصة تعليمية تلهم الأطفال لدخول عالم البرمجة، حيث يستخدم أحمد التفكير المنطقي لحل المشكلات.</p>
             </div>
 
-            <div class="book-card">
+            <div class="book-card" data-book-id="5" data-book-name="أحمد الطبيب الصغير" data-book-price="48">
                 <img src="images/Gemini_Generated_Image_2oz26e2oz26e2oz2.png" alt="Ahmed et la coupe du monde">
                 <h3>أحمد الطبيب الصغير</h3>
-                <p></p>
+                <p>حكاية إنسانية تزرع حب الطب والمساعدة في قلوب الأطفال، ويتعلم أحمد أهمية الرحمة والعلم.</p>
             </div>
 
-            <div class="book-card">
+            <div class="book-card" data-book-id="6" data-book-name="أحمد و كرة الاحلام" data-book-price="48">
                 <img src="images/Gemini_Generated_Image_3stgiw3stgiw3stg.png" alt="Ahmed et la coupe du monde">
                 <h3>أحمد و كرة الاحلام</h3>
-                <p></p>
+                <p>قصة ملهمة عن الإصرار وتحقيق الأحلام، حيث يكتشف أحمد أن النجاح يبدأ بالإيمان بالنفس.</p>
             </div>
 
-            <div class="book-card">
+            <div class="book-card" data-book-id="7" data-book-name="ريم ومرآة الأمنيات" data-book-price="48">
                 <img src="images/Gemini_Generated_Image_bi8rq7bi8rq7bi8r.png" alt="Ahmed et la coupe du monde">
                 <h3> ريم ومرآة الأمنيات</h3>
-                <p></p>
+                <p>مغامرة سحرية لريم مع مرآة تحقق الأمنيات، تعلم الأطفال قيمة القناعة والمسؤولية.</p>
             </div>
 
-            <div class="book-card">
+            <div class="book-card" data-book-id="8" data-book-name="أحمد والروبوت الصغير" data-book-price="48">
                 <img src="images/Gemini_Generated_Image_9jvup39jvup39jvu.png" alt="Ahmed et la coupe du monde">
                 <h3>أحمد والروبوت الصغير</h3>
-                <p></p>
+                <p>قصة تجمع بين الخيال والتكنولوجيا، تشرح للأطفال الذكاء الاصطناعي وأهمية الصداقة.</p>
             </div>
 
-            <div class="book-card">
+            <div class="book-card" data-book-id="9" data-book-name="أحمد والعائلة بلا هواتف" data-book-price="48">
                 <img src="images/Gemini_Generated_Image_omvl1somvl1somvl.png" alt="Ahmed et la coupe du monde">
                 <h3>أحمد والعائلة بلا هواتف </h3>
-                <p></p>
+                <p>قصة تربوية هادفة توضح أهمية التواصل العائلي والابتعاد عن الشاشات.</p>
             </div>
             <!-- Ajouter d'autres livres ici -->
         </div>
@@ -91,20 +112,14 @@
 
     <!-- About Section -->
     <section id="about" class="about">
-        <h2>À propos de KidBooks</h2>
-        <p>Nous créons des livres pour enfants amusants et éducatifs, personnalisables avec le visage de votre enfant pour rendre chaque histoire unique !</p>
+        <h2>KidBooks</h2>
+        <p> منصة متخصصة في إنشاء قصص أطفال تعليمية وترفيهية،
+            نمنح كل طفل تجربة فريدة من خلال تخصيص القصة باسمه ووجهه،
+            لنساعده على حب القراءة وتنمية خياله 
+            
+        </p>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Contactez-nous</h2>
-        <form id="contact-form">
-            <input type="text" placeholder="Votre nom" required>
-            <input type="email" placeholder="Votre email" required>
-            <textarea placeholder="Votre message" required></textarea>
-            <button type="submit">Envoyer</button>
-        </form>
-    </section>
 
     <!-- Footer -->
     <footer>
@@ -124,15 +139,11 @@
     </div>
 
     <!-- WhatsApp Floating Button -->
-<div class="whatsapp-float" id="whatsapp-float">
-    <div class="whatsapp-icon">💬</div>
-    <div class="whatsapp-tooltip">Contactez-nous sur WhatsApp</div>
-</div>
+    <div class="whatsapp-float" id="whatsapp-float">
+        <div class="whatsapp-icon">💬</div>
+        <div class="whatsapp-tooltip">Contactez-nous sur WhatsApp</div>
+    </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
